@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import YellowButton from '../components/YellowButton'
 import ServicesCard from '../components/ServicesCard'
 import { useNavigate } from 'react-router-dom'
@@ -59,6 +59,9 @@ const servicesCard = [
 ]
 
 function ServicesPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0); // Set scroll position to (0, 0) on component mount
+  }, []);
   const navigate = useNavigate()
   return (
     <div>

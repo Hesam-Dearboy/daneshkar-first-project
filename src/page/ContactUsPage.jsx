@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import YellowButton from '../components/YellowButton'
 import { AiFillTwitterCircle, AiFillFacebook, AiFillSkype } from 'react-icons/ai'
 function ContactUsPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0); // Set scroll position to (0, 0) on component mount
+  }, []);
   return (
     <div>
       {/* Banner Section */}

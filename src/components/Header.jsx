@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { ChevronRightIcon, Bars3Icon } from '@heroicons/react/24/solid'
 import BurgerMenu from './BurgerMenu'
 import { AnimatePresence } from 'framer-motion'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 const headerList = [
     {
@@ -28,6 +28,11 @@ const headerList = [
 ]
 
 function Header({ isOpenMenu, setIsOpenMenu }) {
+    const location = useLocation()
+    console.log('/' + location.pathname)
+
+
+
     return (
         <div className=' w-full'>
             <div className=' z-20 fixed top-0 left-0 right-0 '>
@@ -43,7 +48,7 @@ function Header({ isOpenMenu, setIsOpenMenu }) {
                         <div className=' flex items-center space-x-8'>
                             {
                                 headerList.map((item) => (
-                                    <Link to={item.link} key={item.text} className=' md:block hover:text-[#7964ef] cursor-pointer hidden text-lg'>
+                                    <Link to={item.link} key={item.text} className={` ${'/' + item.link === location.pathname  ? 'text-[#7964ef]' : 'text-black'} md:block hover:text-[#7964ef] cursor-pointer hidden text-lg`}>
                                         {item.text}
                                     </Link>
                                 ))

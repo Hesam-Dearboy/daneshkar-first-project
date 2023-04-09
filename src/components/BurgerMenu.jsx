@@ -1,7 +1,7 @@
 import React from 'react'
 import { motion } from 'framer-motion';
 import { ChevronRightIcon, XMarkIcon } from '@heroicons/react/24/solid'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const headerList = [
   {
@@ -28,6 +28,7 @@ const headerList = [
 
 
 function BurgerMenu({ setIsOpenMenu }) {
+  const location = useLocation()
   return (
     <div
 
@@ -58,8 +59,10 @@ function BurgerMenu({ setIsOpenMenu }) {
           </button>
           <div className=' mt-6 border-t-[0.5px] text-[#bfb9f3] text-lg  border-[#bfb9f3]'>
             {headerList.map(item => (
-              <Link to={item.link} key={item.text} >
-                <div  className=' py-3 px-3  cursor-pointer border-b border-[#bfb9f3]'  >
+              <Link 
+              onClick={() => setIsOpenMenu(false)}
+              to={item.link} key={item.text} >
+                <div  className={` ${'/' + item.link === location.pathname && 'text-white'  } py-3 px-3  cursor-pointer border-b border-[#bfb9f3]`}  >
                   <h1 className=' text-' >
                     {item.text}
                   </h1>

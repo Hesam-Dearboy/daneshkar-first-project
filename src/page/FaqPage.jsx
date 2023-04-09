@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import YellowButton from '../components/YellowButton'
 import FaqQA from '../components/FaqQ&A'
 import FaqStepsBox from '../components/FaqStepsBox'
@@ -35,6 +35,9 @@ const QAndAList = [
 
 
 function FaqPage() {
+  useEffect(() => {
+    window.scrollTo(0, 0); // Set scroll position to (0, 0) on component mount
+  }, []);
   const navigate  = useNavigate()
   return (
     <div>

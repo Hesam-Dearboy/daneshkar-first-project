@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import YellowButton from '../components/YellowButton'
 import { motion } from 'framer-motion'
 import FeaturesCard from '../components/FeaturesCard'
@@ -77,7 +77,10 @@ const ourClientCard = [
         image: 'https://themes.muffingroup.com/be/seo3/wp-content/uploads/2019/08/seo3-client5-145x75.png'
     },
 ]
-function HomePage() { 
+function HomePage() {
+    useEffect(() => {
+        window.scrollTo(0, 0); // Set scroll position to (0, 0) on component mount
+      }, []);
     const navigate = useNavigate()
     return (
         <div
